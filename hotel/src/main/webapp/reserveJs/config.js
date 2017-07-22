@@ -1,0 +1,14 @@
+reserveApp.config(['$routeProvider',function($routeProvider){
+	$routeProvider
+	.when('/step1',{
+	    templateUrl:'reserveStep1',
+	    controller:'step1Ctrl'
+	})
+	.when('/step2',{
+		templateUrl:'reserveStep2',
+		controller:'step2Ctrl'
+	})
+	.otherwise({
+		redirectTo:'/step1'
+	});
+}]);

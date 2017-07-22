@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>主页</title>
+ <link rel="stylesheet" href="../../css/bootstrap.min.css">  
+ <link rel="stylesheet" href="../../css/calendar.css">
+ <script src="../../bootstrap/jquery.min.js"></script>
+ <script src="../../bootstrap/bootstrap.min.js"></script>
+ <script src="../../bootstrap/angular.min.js"></script>
+ <script src="../../bootstrap/angular-route.js"></script>
+ <script src="../../bootstrap/calendar.js"></script>
+ <script src="../../frontJs/app.js"></script>
+ <script src="../../frontJs/config.js"></script>
+ <script src="../../frontJs/service.js"></script>
+ <script src="../../frontJs/controller.js"></script>
+ <script src="../../../bootstrap/gVerify.js"></script>
+</head>
+<body ng-app="UserApp">
+    <div id="myCarousel" class="carousel slide" ng-controller="mainCtrl" style="height:200px">
+    <!-- 轮播（Carousel）指标 -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>   
+    <!-- 轮播（Carousel）项目 -->
+    <div class="carousel-inner">
+        <div class="item active" style="height:200px">
+            <img src="/images/{{topImage[topImage.length-1].imageName}}" alt="First slide" width="100%" height="200px">
+        </div>
+        <div class="item" style="height:200px">
+            <img src="/images/{{topImage[topImage.length-2].imageName}}" alt="Second slide" width="100%" height="200px">
+        </div>
+        <div class="item" style="height:200px">
+            <img src="/images/{{topImage[topImage.length-3].imageName}}" alt="Third slide" width="100%" height="200px">
+        </div>
+    </div>
+    <!-- 轮播（Carousel）导航 -->
+    <a class="carousel-control left" href="#myCarousel" 
+        data-slide="prev">&lsaquo;
+    </a>
+    <a class="carousel-control right" href="#myCarousel" 
+        data-slide="next">&rsaquo;
+    </a>
+    </div>  
+      <!-- top -->
+   <div  class="carousel slide" style="position:absolute;right:30px;height:10px">
+       <div class="top-content">
+       
+       </div>
+   </div>
+   
+      
+      <!-- body-top -->
+    <div>
+      <div ng-view></div>
+    </div>
+    
+</body>
+<style>
+	#myCarousel {
+	height: 120px; 
+	border: 2px solid green;
+}
+.top-content {
+	margin-left: 80%;
+}
+</style>
+</html>

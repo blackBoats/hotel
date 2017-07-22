@@ -1,0 +1,133 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding-top:30px;">
+	<div>
+		图片上传
+	</div>
+    <div class="container" style="margin-top:30px;height:70px">  
+        <div >      
+        	<div style="float:left;font-size: 22px;margin-left:-12px;width:100px;text-align: right;">图片</div>
+            <div  style="float:left;padding-left:30px">    
+                <div class="input-group image-preview" style="width:200px">  
+                    <input style="width:300px" type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->  
+                    <span class="input-group-btn">  
+                        <!-- image-preview-clear button -->  
+                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">  
+                            <span class="glyphicon glyphicon-remove"></span> Clear  
+                        </button>  
+                        <!-- image-preview-input -->  
+                        <div class="btn btn-default image-preview-input">  
+                            <span class="glyphicon glyphicon-folder-open"></span>  
+                            <span class="image-preview-input-title">Browse</span>  
+                            <input type="file"  accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->  
+                        </div>  
+                    </span>  
+                </div><!-- /input-group image-preview [TO HERE]-->   
+            </div>  
+        </div>  
+    </div>
+    <div style="width:50%;height:70px">
+    	<div style="float:left;width:100px;text-align: right;">房间类型</div>
+    	<div style="float:left;padding-left:30px;"><input type="text" class="form-control" style="width:300px"> </div>
+    </div>
+    <div style="width:50%;">
+    	<div style="float:left;width:100px;text-align: right;">房间类型</div>
+    	<div style="padding-left:130px;">
+    		<textarea type="text" class="form-control" style="width:500px" rows="3"></textarea>
+    	</div>
+    </div>
+    <div style="width:50%;padding-top:30px;padding-left:130px">
+    	<div style="float:left;width:100px;">
+    		<button class="btn btn-success" ng-click="cancelSub()">取消</button>
+    	</div>
+    	<div style="padding-left:130px;">
+    		<button class="btn btn-success" ng-click="createImage(image)">保存</button>
+    	</div>
+    </div>
+</div>
+    <style rel="stylesheet">
+        .container{  
+        margin-top:20px;  
+    }  
+    .image-preview-input {  
+        position: relative;  
+        overflow: hidden;  
+        margin: 0px;      
+        color: #333;  
+        background-color: #fff;  
+        border-color: #ccc;      
+    }  
+    .image-preview-input input[type=file] {  
+        position: absolute;  
+        top: 0;  
+        right: 0;  
+        margin: 0;  
+        padding: 0;  
+        font-size: 20px;  
+        cursor: pointer;  
+        opacity: 0;  
+        filter: alpha(opacity=0);  
+    }  
+    .image-preview-input-title {  
+        margin-left:2px;  
+    }  
+    </style>
+    <script>
+    	
+    	$(document).on('click', '#close-preview', function(){   
+        $('.image-preview').popover('hide');  
+        // Hover befor close the preview  
+        $('.image-preview').hover(  
+            function () {  
+               $('.image-preview').popover('show');  
+            },   
+             function () {  
+               $('.image-preview').popover('hide');  
+            }  
+        );      
+    });  
+      
+    $(function() {  
+        // Create the close button  
+        var closebtn = $('<button/>', {  
+            type:"button",  
+            text: 'x',  
+            id: 'close-preview',  
+            style: 'font-size: initial;',  
+        });  
+        closebtn.attr("class","close pull-right");  
+        // Set the popover default content  
+        $('.image-preview').popover({  
+            trigger:'manual',  
+            html:true,  
+            title: "<strong>Preview</strong>"+$(closebtn)[0].outerHTML,  
+            content: "There's no image",  
+            placement:'bottom'  
+        });  
+        // Clear event  
+        $('.image-preview-clear').click(function(){  
+            $('.image-preview').attr("data-content","").popover('hide');  
+            $('.image-preview-filename').val("");  
+            $('.image-preview-clear').hide();  
+            $('.image-preview-input input:file').val("");  
+            $(".image-preview-input-title").text("Browse");   
+        });   
+        // Create the preview image  
+        $(".image-preview-input input:file").change(function (){       
+            var img = $('<img/>', {  
+                id: 'dynamic',  
+                width:250,  
+                height:200  
+            });        
+            var file = this.files[0];  
+            var reader = new FileReader();  
+            // Set preview image into the popover data-content  
+            reader.onload = function (e) {  
+                $(".image-preview-input-title").text("Change");  
+                $(".image-preview-clear").show();  
+                $(".image-preview-filename").val(file.name);              
+                img.attr('src', e.target.result);  
+                $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");  
+            }          
+            reader.readAsDataURL(file);  
+        });    
+    });  
+    </script>

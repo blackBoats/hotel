@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../../css/bootstrap.min.css">  
+<script src="../../bootstrap/jquery.min.js"></script>
+<script src="../../bootstrap/bootstrap.min.js"></script>
+<script src="../../bootstrap/angular.min.js"></script>
+<script src="../../bootstrap/angular-route.js"></script>
+<script src="../../reserveJs/app.js"></script>
+<script src="../../reserveJs/config.js"></script>
+<script src="../../reserveJs/service.js"></script>
+<script src="../../reserveJs/controller.js"></script>
+</head>
+<body ng-app="reserveApp">
+    <div class="top">
+    	<a href="index" class="btn btn-info">主页</a>
+    </div>
+    
+    <div ng-view=""></div>
+    
+    
+</body>
+<style>
+.top {
+	background-color: #AFD9EE;
+	height: 130px;
+}
+</style>
+</html>

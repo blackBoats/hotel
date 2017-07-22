@@ -1,0 +1,85 @@
+<div class="container" style="margin-top:40px;border: 1px solid gainsboro;">
+	
+	<div style="width:100%;padding-bottom: 30px;"> 
+		<div style="width:50%;padding-top:30px;padding-left:30px">
+			<div style="width:300px;">
+				<div style="height:30px;padding-top:4px;">修改密码</div>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px" >电话</div>
+			</div>
+			<div style="float:left">
+				<div>
+						<input type="text" class="form-control" style="height:30px" ng-model="review.phoneNumber" required="required">		
+				</div>
+			</div>
+			<div style="float:left">
+				<div style="clear: left;height:30px;padding-top:4px">
+					<span ></span>			
+				</div>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">验证码</div>
+			</div>
+			<div style="float:left">
+				<div>
+					<input type="text" class="form-control" style="height:30px" required="required">		
+				</div>
+			</div>
+			<div style="float:left;padding-left:10px">
+				<div style="height:30px;" id="v_container">
+				</div>
+			</div>
+			<div style="float:left;padding-left:10px">
+				<button class="btn btn-default" ng-click="getPhoneNumber()"> 获取手机验证码</button>
+			</div>
+			<div style="float:left;padding-left:10px;padding-top:4px">
+				<span></span>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">手机验证码</div>
+			</div>
+			<div style="float:left">
+				<div>
+					<input type="text" class="form-control" style="height:30px" required="required">		
+				</div>
+			</div>
+			
+			<div style="float:left;padding-left:10px;padding-top:4px">
+				<span></span>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">密码</div>
+			</div>
+			<div style="float:left">
+				<div>
+					<input type="password" class="form-control" style="height:30px" required="required">		
+				</div>
+			</div>
+			
+			<div style="float:left;padding-left:10px;padding-top:4px">
+				<span></span>
+			</div>
+		</div>
+		<div style="clear:left;padding-top: 30px;padding-left:30px">
+			<button class="btn btn-success" ng-click="saveReview(review)">提交</button>
+			<a class="btn btn-success" href="#/main" style="margin-left:20px">返回</a>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('#myTab li:eq(1) a').tab('show');
+	});
+	var verifyCode = new GVerify("v_container");
+
+		
+</script>

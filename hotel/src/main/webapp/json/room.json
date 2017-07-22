@@ -1,0 +1,43 @@
+{
+    "rooms":[
+    {
+    "roomType":"经济房",
+    "breakfast":"1",
+    "price":111,
+    "bedType":"双人房",
+    "BBA":0,
+    "BWA":1
+    },
+        {
+    "roomType":"标准房",
+    "breakfast":"1",
+    "price":111,
+    "bedType":"单人",
+    "BBA":0,
+    "BWA":1
+    },
+        {
+    "roomType":"高级房",
+    "breakfast":"1",
+    "price":111,
+    "bedType":"单人",
+    "BBA":1,
+    "BWA":1
+    },    {
+    "roomType":"经济房",
+    "breakfast":"0",
+    "price":111,
+    "bedType":"双人房",
+    "BBA":0,
+    "BWA":1
+    },    {
+    "roomType":"经济房",
+    "breakfast":"0",
+    "price":111,
+    "bedType":"双人房",
+    "BBA":0,
+    "BWA":1
+    }
+    
+   ]
+}

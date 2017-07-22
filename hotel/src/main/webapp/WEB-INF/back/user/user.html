@@ -1,0 +1,88 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding-top:30px;">
+	<div  class="marintop" >
+		<div id="top-left" style="float:left">
+			<button class="btn btn-primary " ng-click="refeshCustomer()" style="height:30px;width:100px">  刷新
+        	</button>
+		</div>
+		<div style="float:right">
+			<div>
+			<div>
+			    <!--<span>
+				<select ng-init="selectedType = types[0]" ng-model="selectedType"
+						 ng-options="x for x in types" style="width:100px;height:25px">
+			 	</select>
+			    </span>-->
+				<div style="float:left">
+					<input class="form-control" type="text" style="width:200px;height:30px" ng-model="phoneNumber">
+				</div>
+				
+				<div style="float:left;padding-left:40px;">
+				    <button class="btn btn-primary" style="height:30px;text-align: center;" ng-click="searchCustomer(phoneNumber)">查询</button>
+				</div>
+			</div>
+			</div>
+		</div>	
+	</div>	
+		
+	<div style="clear:left;padding-top:20px">
+		<div>
+		<div >
+		<table class="table table-striped" style="margin-top:20px" >
+			<thead>	
+				<tr>
+					<td></td>
+					<td>姓名</td>
+					<td>电话</td>
+					<td>邮箱</td>
+					<td>密码</td>
+					<td>身份证</td>
+					<td>积分</td>
+					<td>注册时间</td>
+				</tr>
+			</thead>
+			<tbody ng-if="indexPage.length != null">
+				<tr  ng-repeat="item in indexPage track by $index">
+					<td> 
+         				<!--<a href="javascript:void(0)"><span class="glyphicon glyphicon-zoom-in" ng-click="showEmployee(item)" "tooltip"
+                                 title="详细信息" style="color: darkblue"></span></a>-->
+         				<a href="javascript:void(0)"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip"
+                                 title="修改" style="color: darkblue" ng-click="updateCustomer(item)"></span></a>
+         				<a href="javascript:void(0)"><span class="glyphicon glyphicon-trash" "tooltip"
+                                 title="删除" style="color: darkblue" ng-click="deleteCustomer(item)"></span></a>
+	    			</td>	
+					<td>{{item.userName}}</td>
+					<td>{{item.phoneNumber}}</td>
+					<td>{{item.email}}</td>
+					<td>{{item.password}}</td>
+					<td>{{item.identityId}}</td>
+					<td>{{item.credits}}</td>
+					<td>{{item.customerTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+					<!--<td ng-if="item.salaryStatus== 0"><button class="btn btn-warning" ng-click="saveAccount(item)">工资</button></td>-->
+				</tr>
+			</tbody>
+			<!--判定是否存在数据-->
+			<tbody ng-if="indexPage.length == 0">
+				<tr><td colspan="8"><span style="margin-left:40%;font-size:20px">暂时没有数据</span></td></tr>
+			</tbody>
+			
+		   
+		</table>
+		</div>
+	    </div>
+    </div>
+	<div class="mainbottom" style="width:80%;margin-left:10%;margin-top:20px;min-width: 960px;" ng-if="indexPage.length != 0">
+		<!--<span style="margin-left:8px;font-size: 16px;">第{{index}}页</span>-->
+		<span style="margin-left:16px">
+				<button class="btn " style="margin-left:6px" ng-click="prePage()">&laquo;</button>
+                <button class="btn " ng-repeat="list in listPage track by $index" 
+                	style="margin-left:6px;" ng-click="selectPage(list)">{{list}}</button>
+                <button class="btn " style="margin-left:6px" ng-click="nextPage()">&raquo;</button>
+		</span>
+		<span style="margin-left:16px">
+			<input type="text" ng-model="index" style="width:60px;">
+			<button class="btn" ng-click="jumpTo(index)">跳转</button>
+		</span>
+	</div>
+       
+</div>
+	

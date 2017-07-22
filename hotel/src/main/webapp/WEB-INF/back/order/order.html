@@ -1,0 +1,200 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding:30px;border: 1px solid gainsboro;">
+		<div  class="marintop"  >
+			<div id="top-left" style="float:left">
+				<button class="btn btn-info btn-md" ng-click="addOrder()" style="height:30px;width:100px">
+                    	<span class="glyphicon glyphicon-plus"></span> 创建订单
+        			</button>
+			</div>
+			<div style="float:right">
+				<div>
+			    <div>
+				<!--<span>
+					<select ng-init="selectedType = types[0]" ng-model="selectedType"
+						 ng-options="x for x in types" style="width:100px;height:25px">
+					</select>
+				</span>-->
+				    <div style="float:left;width:150px">
+				    	 <select ng-init="orderStatus = typeOrders[1]" ng-model="orderStatus" ng-options="x for x in typeOrders"
+				    	 	 ng-change="selectStatus(orderStatus)" class="form-control" style="width:150px;height:30px;">
+				    	 </select>
+				    </div>
+					<div style="float:left;padding-left:30px">
+						<input class="form-control" type="text" style="width:150px;height:30px;" ng-model="roomName">
+					</div>
+				  	<div style="float:left;padding-left:20px">
+					<button class="btn btn-primary" ng-click="searchOrder(roomName)" style="height:30px;width:100px">查询</button>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	<div style="clear:left;padding-top:20px">
+		<div>
+		<div  >
+		<table class="table table-striped table-hover" style="margin-top:20px" >
+			<thead>	
+				<tr>
+					<td>姓名</td>
+					<td>房间号</td>
+					<td>入住时间</td>
+					<td>离开时间</td>
+					<td>总计</td>
+					<td>电话</td>
+					<td>身份证</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-if="indexPage.length != 0" ng-repeat="item in indexPage track by $index" style="height:40px">
+					<td>{{item.userName}}</td>
+					<td>{{item.roomName}}</td>
+					<td>{{item.inTime}}</td>
+					<td>{{item.outTime}}</td>
+					<td>{{item.price}}</td>
+					<td>{{item.phoneNumber}}</td>
+					<td>{{item.identityId}}</td>
+					<td ng-if="item.orderStatus == 0"><button class="btn btn-primary" data-toggle="modal" 
+						data-target="#myModal" ng-click="updateOrder(item)">修改</button>
+						<button style="margin-left:4px" 
+						class="btn btn-primary" ng-click="saveOrder(item)">保存</button></td>
+					<td ng-if="item.orderStatus == 1"></button><button disabled="disabled" class="btn btn-primary" style="margin-left:4px" role="button" ng-click="saveOrder(item)">保存</button></td>
+				</tr>
+			</tbody>
+			<tbody ng-if="indexPage.length == 0">
+				<tr><td colspan="8"><span style="margin-left:40%;font-size:20px">暂时没有数据</span></td></tr>
+			</tbody>
+		</table>
+		</div>
+		
+		
+	    </div>
+    </div>
+	<div class="mainbottom" style="width:80%;margin-left:10%;margin-top:20px;min-width: 960px;" ng-if="indexPage.length != 0">
+		<!--<span style="margin-left:8px;font-size: 16px;">第{{index}}页</span>-->
+		<span style="margin-left:16px">
+				<button class="btn " style="margin-left:6px" ng-click="prePage()">&laquo;</button>
+                <button class="btn " ng-repeat="list in listPage track by $index" 
+                	style="margin-left:6px;" ng-click="selectPage(list)">{{list}}</button>
+                <button class="btn " style="margin-left:6px" ng-click="nextPage()">&raquo;</button>
+		</span>
+		<span style="margin-left:16px">
+			<input type="text" ng-model="index" style="width:60px;">
+			<button class="btn" ng-click="jumpTo(index)">跳转</button>
+		</span>
+	</div>
+       
+</div>
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" >
+	        <div class="modal-dialog" style="width:730px;height:600px;" >
+		        <div class="modal-content" style="2px solid red">
+			        <div class="modal-header">
+			        	<span style="font-size: 20px; margin-left:40%	">预订信息</span>
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        </div>
+			        <div class="model-body" style="margin-left:100px;margin-top:40px;clear:both"  >
+			        <div >
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">姓名</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<input type="text" ng-model="order.userName" style="width:200px;height:27px">
+				            </div>
+		                    </div>
+			            </div>
+			        </div>
+			        
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">身份证号</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<input type="text" ng-model="order.identityId" style="width:200px;height:27px">
+				            </div>
+		                    </div>
+			        	    </div>
+			        </div>
+			        
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">电话号码</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<input type="text" ng-model="order.phoneNumber" style="width:200px;height:27px">
+				            </div>
+		                    </div>
+			        	    </div>
+			        </div>
+			        
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">房间号</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<input type="text" ng-model="order.roomName" style="width:200px;height:27px">
+				            </div>
+		                    </div>
+			        	    </div>
+			        </div>
+			        
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">入住时间</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<select ng-init="order.inTime =inTimes[0]" ng-model="order.inTime" ng-options="x for x in inTimes"
+				            		ng-change="selectinTime(order.inTime)" style="width:200px;height:27px"></select>
+				            </div>
+		                    </div>
+			        	    </div>
+			        </div>
+			        
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">离开时间
+				            </div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<select ng-init="order.outTime =outTimes[0]" ng-model="order.outTime" ng-options="x for x in outTimes"
+				            		ng-change="selectoutTime(order.outTime)" style="width:200px;height:27px"></select>
+				            </div>
+		                    </div>
+			        	    </div>
+			        </div>
+			        
+			        <div style="margin-top: 12px;height:30px">
+			        	<div style="margin-top:12px;clear:left">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				            <div style="font-size: 16px;text-align: right;">价钱
+				            </div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	共{{order.price }}
+				            </div>
+		                    </div>
+			        	    </div>
+			        </div>
+			        
+			    </div>
+			        <div class="modal-footer" style="margin-top:40px">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="button" class="btn btn-primary" ng-click="createOrder(order)">提交</button>
+			        </div>
+		       </div><!-- /.modal-content -->
+	        </div><!-- /.modal -->
+	    </div>
+</div>
+	

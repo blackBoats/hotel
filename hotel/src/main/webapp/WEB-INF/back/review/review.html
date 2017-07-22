@@ -1,0 +1,62 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding-top:30px;border: 1px solid gainsboro;min-width: 1000px;padding: 30px;">
+	<div  class="marintop" style="height:50px">
+		<div id="top-left" style="float:left;padding-left:20px">
+                   <span style="font-size: 18px;">反馈信息</span> 
+		</div>
+		<!--<div style="float:right">
+			<div>
+			<div>
+			    <span>
+				<select ng-init="selectedType = types[0]" ng-model="selectedType"
+						 ng-options="x for x in types" style="width:100px;height:25px">
+			 	</select>
+			    </span>
+				<div style="float:left">
+					<input class="form-control" type="text" style="width:100px;height:30px">
+				</div>
+				
+				<div style="float:left;padding-left:20px;">
+				    <button class="btn btn-primary" style="height:30px;text-align: center;">查询</button>
+				</div>
+			</div>
+			</div>
+		</div>	-->
+	</div>	
+	<div style="width:100%;clear: left;">
+		<div ng-repeat="item in indexPage" style="width:50%;border-bottom-style:solid;border-bottom-width: 1px;
+			border-bottom-color: gainsboro;padding-bottom: 10px;margin-top:10px;float:left;padding:40px;padding-top:20px">
+			<div>
+				<span style="">{{item.reviewUsername}}</span>
+			</div>
+			<div>
+				<span style="">{{item.reviewQuestion}}</span>
+			</div>
+			<div>
+				<span style="">{{item.reviewMessage}}</span>
+			</div>
+			<div>
+				<span >{{item.phoneNumber}}</span>
+			</div>
+			<div>
+				<span style="">{{item.createDate | date:'yyyy/MM/dd hh:mm'}}</span>
+			</div>
+			<div style="margin-top:10px">
+				<button class="btn btn-primary">通过</button>
+				<button class="btn btn-primary" ng-click="deleteReview(item.reviewId)">删除</button>
+			</div>
+		</div>
+	</div>
+	<div class="mainbottom" style="width:80%;margin-left:10%;padding-top:20px;min-width: 960px;clear: left;" ng-if="indexPage.length != 0">
+			<!--<span style="margin-left:8px;font-size: 16px;">第{{index}}页</span>-->
+			<span style="margin-left:16px">
+					<button class="btn " style="margin-left:6px" ng-click="prePage()">&laquo;</button>
+	                <button class="btn " ng-repeat="list in listPage track by $index" 
+	                	style="margin-left:6px;" ng-click="selectPage(list)">{{list}}</button>
+	                <button class="btn " style="margin-left:6px" ng-click="nextPage()">&raquo;</button>
+			</span>
+			<span style="margin-left:16px">
+				<input type="text" ng-model="index" style="width:60px;">
+				<button class="btn" ng-click="jumpTo(index)">跳转</button>
+			</span>
+	</div>
+</div>

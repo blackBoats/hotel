@@ -1,0 +1,88 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding: 30px;border: 1px solid gainsboro">
+	<div  class="marintop" >
+		<div id="top-left" style="float:left">
+			<button class="btn btn-info btn-md" ng-click="createEmployee()" style="height:30px">
+                   <span class="glyphicon glyphicon-plus"></span> 添加员工
+        	</button>
+		</div>
+		<div style="float:right">
+			<div>
+			<div>
+			    <!--<span>
+				<select ng-init="selectedType = types[0]" ng-model="selectedType"
+						 ng-options="x for x in types" style="width:100px;height:25px">
+			 	</select>
+			    </span>-->
+				<div style="float:left">
+					<input class="form-control" type="text" style="width:200px;height:30px" ng-model="username" placeholder="请输入名字">
+				</div>
+				
+				<div style="float:left;padding-left:20px;">
+				    <button class="btn btn-primary" style="height:30px;text-align: center;" ng-click="searchEmployee(username)">查询</button>
+				</div>
+			</div>
+			</div>
+		</div>	
+	</div>	
+		
+	<div style="clear:left;padding-top:20px">
+		<div>
+		<div >
+		<table class="table table-striped" style="margin-top:20px" >
+			<thead>	
+				<tr>
+					<td></td>
+					<td>姓名</td>
+					<td>身份证</td>
+					<td>电话</td>
+					<td>入职时间</td>
+					<td>工资</td>
+					<td>职位</td>
+					
+					
+					
+				</tr>
+			</thead>
+			<tbody ng-if="indexPage.length != 0">
+				<tr  ng-repeat="item in indexPage track by $index">
+					<td> 
+         				<!--<a href="javascript:void(0)"><span class="glyphicon glyphicon-zoom-in" ng-click="showEmployee(item)" "tooltip"
+                                 title="详细信息" style="color: darkblue"></span></a>-->
+         				<a href="javascript:void(0)"><span class="glyphicon glyphicon-pencil" data-toggle="tooltip"
+                                 title="修改" style="color: darkblue" ng-click="updateEmployee(item)"></span></a>
+         				<a href="javascript:void(0)"><span class="glyphicon glyphicon-trash" "tooltip"
+                                 title="删除" style="color: darkblue" ng-click="deleteEmployee(item.employeeId)"></span></a>
+	    			</td>	
+					<td>{{item.username}}</td>
+					<td>{{item.employeeIdentity}}</td>
+					<td>{{item.phoneNumber}}</td>
+					<td>{{item.createDate}}</td>
+					<td>{{item.employeeSalary}}</td>
+					<!--<td ng-if="item.salaryStatus== 0"><button class="btn btn-warning" ng-click="saveAccount(item)"></button></td>-->
+					<td>{{item.position}}</td>
+				</tr>
+			</tbody>
+			<!--判定是否存在数据-->
+			<tbody ng-if="indexPage.length == 0">
+				<tr><td colspan="7"><span style="margin-left:40%;font-size:20px">暂时没有数据</span></td></tr>
+			</tbody>
+		</table>
+		</div>
+	    </div>
+    </div>
+	<div class="mainbottom" style="width:80%;margin-left:10%;margin-top:20px;min-width: 960px;" ng-if="indexPage.length != 0">
+		<!--<span style="margin-left:8px;font-size: 16px;">第{{index}}页</span>-->
+		<span style="margin-left:16px">
+				<button class="btn " style="margin-left:6px" ng-click="prePage()">&laquo;</button>
+                <button class="btn " ng-repeat="list in listPage track by $index" 
+                	style="margin-left:6px;" ng-click="selectPage(list)">{{list}}</button>
+                <button class="btn " style="margin-left:6px" ng-click="nextPage()">&raquo;</button>
+		</span>
+		<span style="margin-left:16px">
+			<input type="text" ng-model="index" style="width:60px;">
+			<button class="btn" ng-click="jumpTo(index)">跳转</button>
+		</span>
+	</div>
+       
+</div>
+	

@@ -1,0 +1,150 @@
+<!--<div style="background-color: white;padding:40px" >
+	<div class="mainbody" style="background-color: #F1F1F1;height:600px;border:1px solid darkgray;">
+		<div>
+			   <div style="margin-left:12px;margin-top:10px;font-size: 16px;">
+			   	    <ol class="breadcrumb" >
+					    <li><a href="#/room">酒店信息</a></li>
+					    <li class="active">修改</li>
+				    </ol>
+			   </div>
+		</div>
+	
+	    <div>
+		   	<div style="margin-left:100px;padding-top:40px">
+		   	   	<div style="margin-top: 12px;height:50px">
+			        	<div style="margin-top:12px;">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:120px;padding-right: 10px;">
+				            <div style="font-size: 16px;font-size:25px;text-align: right;">客房号</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:250px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<input type="text" class="form-control" ng-model="room.roomName" disabled="true" >
+				            </div>
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:120px;padding-right: 10px;">
+				            <div style="font-size: 16px;font-size:25px;text-align: right;">客房类型</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:250px;padding-left: 0px;">
+				            <div style="font-size: 20px;">
+				            	<select style="font-size: 18px;" class="form-control" ng-init="room.typeRoom" ng-model="room.typeRooms" 
+				            		ng-options="x for x in typeRooms"></select>
+				            </div>
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:120px;padding-right: 10px;">
+				            <div style="font-size: 16px;font-size:25px;text-align: right;">客房床型</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:250px;padding-left: 0px;">
+				            <div style="font-size: 20px;">
+				            	<select style="font-size: 18px;"class="form-control" ng-init="room.bedType" 
+				            		ng-model="room.bedType" ng-options="x for x in typeBeds"></select>
+				            </div>
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:120px;padding-right: 10px;">
+				            <div style="font-size: 16px;font-size:25px;text-align: right;">客房价格</div>
+			                </div>
+		    	            <div style="float:left;border:0px solid red;margin-left:20px;width:250px;padding-left: 0px;">
+				            <div style="font-size: 16px;">
+				            	<input type="text" class="form-control" ng-model="room.roomPrice" >
+				            </div>
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;margin-top:20px">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<span style="margin-left:50px"></span><button class="btn" ng-click="updateRoom(room)">提交</button></span>
+			        		<span style="margin-left:40px"><button class="btn" ng-click="deleteRoom(room.roomId)">删除</button></span>
+			        	</div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+</div>-->
+	<div style="padding:40px" >
+	<div class="mainbody" style="height:600px;border:1px solid darkgray;">
+		<div>
+			   <div style="margin-left:100px;margin-top:30px;font-size: 20px;">
+			   	    <!--<ol class="breadcrumb" >
+					    <li><a href="#/room">酒店信息</a></li>
+					    <li class="active">添加</li>
+				    </ol>-->
+				    <div>修改房间</div>
+			   </div>
+		</div>
+	
+	    <div>
+		   	<div style="margin-left:100px;padding-top:20px">
+		   		
+		   	   	<div style="margin-top: 12px;height:50px">
+			        	<div >
+			        		<div style="float:left;margin-left:40px;width:120px;padding-top:4px">
+				            <div style="font-size: 16px;font-size:18px;text-align: right;">客房号</div>
+			                </div>
+			                <div style="float:left;padding-left:40px">
+			                	<input type="text" class="form-control" ng-model="room.roomName"  style="width:300px;height:30px">
+			        			<!--<span style="padding-top:10px">你好 什么鬼</span>-->
+			        		</div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;margin-left:40px;width:120px;">
+				            <div style="font-size: 16px;font-size:18px;text-align: right;">客房类型</div>
+			                </div>
+		    	            <div style="float:left;padding-left:40px">
+				            	<input type="text" class="form-control" ng-model="room.roomType" style="width:300px;height:30px">
+		                    </div>
+			        	</div>
+			    </div>
+			    
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;margin-left:40px;width:120px;">
+				            <div style="font-size: 16px;font-size:18px;text-align: right;">客房床型</div>
+			                </div>
+		    	            <div style="float:left;padding-left: 40px;">
+				            	<input type="text" class="form-control" ng-model="room.bedType" style="width:300px;height:30px">
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:120px;padding-right: 10px;">
+				            <div style="font-size: 16px;font-size:18px;text-align: right;">客房价格</div>
+			                </div>
+		    	            <div style="float:left;padding-left: 40px;">
+				            	<input type="text" class="form-control" ng-model="room.roomPrice" style="width:300px;height:30px">
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="margin-top: 12px;">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<div style="float:left;border:0px solid red;margin-left:40px;width:120px;padding-right: 10px;">
+				            <div style="font-size: 16px;font-size:18px;text-align: right;">描述</div>
+			                </div>
+		    	            <div style="float:left;padding-left: 40px;">
+		    	            	<textarea class="form-control" ng-model="room.roomDescrible" rows="4" style="width:500px;"></textarea>
+		                    </div>
+			        	</div>
+			    </div>
+			    <div style="clear:left;margin-top: 12px;margin-top:20px;padding-top:20px">
+			        	<div style="margin-top:12px;clear:left;height:50px">
+			        		<span style="margin-left:100px"></span><button class="btn btn-default" ng-click="addRoom(room)">提交</button></span>
+			        		<span style="margin-left:40px"><button class="btn btn-default" ng-click="deleteRoom()">删除</button></span>
+			        	</div>
+			    </div>
+		    </div>
+		</div>
+	</div>
+</div>

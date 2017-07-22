@@ -1,0 +1,81 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding:30px;border: 1px solid gainsboro;min-width: 1000px;padding-bottom: 30px;">
+	<div style="padding-bottom: 50px;">
+        <!--<div>
+        	<ol class="breadcrumb">
+		        <li><a href="javascript: void(0)">员工管理</a></li>
+		        <li class="active"><a href="javascript: void(0)">员工添加</a></li>
+		    </ol>
+        </div>-->
+        <div>
+        	<spans style="font-size: 20px;margin-left:40px">账单修改</span>
+        </div>
+        
+    </div>   
+    <div style="padding-bottom: 30px;">
+    	<div style="width:50%;float:left;height:60px">
+        	<div style="padding-left:80px;float:left;">
+        		<span style="margin-top:4px">姓名</span>
+        	</div>
+        	<div style="float:left;padding-left:40px">
+        			<input type="text" class="form-control" style="height:27px;width:280px" ng-model="account.accountUsername">
+        			<!--<span style="padding-top:10px">你好 什么鬼</span>-->
+        	</div>	
+        </div>
+        <div style="width:50%;float:left;height:60px">
+        	<div style="padding-left:80px;float:left;">
+        		<span style="margin-top:4px">金额</span>
+        	</div>
+        	<div style="float:left;padding-left:40px">
+        			<input type="text" class="form-control" style="height:27px;width:280px" ng-model="account.accountMoney">
+        			<!--<span style="padding-top:10px">你好 什么鬼</span>-->
+        	</div>	
+        </div>
+         <div style="width:50%;float:left;height:60px">
+        	<div style="padding-left:80px;float:left;">
+        		<span style="margin-top:4px">状态</span>
+        	</div>
+        	<div style="float:left;padding-left:40px">
+        			<input type="text" class="form-control" style="height:27px;width:280px" ng-model="account.accountStatus"
+        				placeholder="0为支出，1为收入">
+        			<!--<span style="padding-top:10px">你好 什么鬼</span>-->
+        	</div>	
+        </div>
+        <!--<div style="width:50%;float:left;height:60px">
+        	<div style="padding-left:80px;float:left;">
+        		<span style="margin-top:4px">身份证</span>
+        	</div>
+        	<div style="float:left;padding-left:40px">
+        			<input type="text" class="form-control" style="height:27px;width:280px" ng-model="employee.employeeIdentity">
+        	</div>	
+        </div>-->
+        <div style="clear:left;margin-left:100px;padding-right:90px;">
+			<div style="padding-top:30px">
+			    <span>描述</span>
+			    <textarea class="form-control" rows="3" ng-model="account.accountMessage"></textarea>
+			</div>
+	   </div>
+         <!--<div style="width:50%;float:left;height:60px">
+        	<div style="float:left;padding-left:80px">
+        		<span style="margin-top:4px;width:100px;">职位</span>
+        	</div>
+        	<div style="float:left;padding-left:40px">
+        			<input type="text" class="form-control" style="height:27px;width:280px" ng-model="employee.position">
+        	</div>	
+        </div>
+        <div style="width:50%;float:left;height:60px">
+        	<div style="padding-left:66px;float:left;">
+        		<span style="margin-top:4px">入职时间</span>
+        	</div>
+        	<div style="float:left;padding-left:40px">
+        		<select style="height:30px;width:280px" class="form-control" ng-init="employee.createDate = inTimes[0]"  
+        		    			ng-model="employee.createDate" ng-options="x for x in inTimes"></select>
+        	</div>	
+        </div>
+	</div>
+	<div style="clear:left;margin-left:100px;padding-right:90px;">
+		<div style="padding-top:30px">
+		    <span>描述</span>
+		    <textarea class="form-control" rows="3" ng-model="employee.reson"></textarea>
+		</div>
+	</div>-->
+	<div style="clear:left;margin-left:100px;padding-right:90px;padding-top:40px">		<div>			<span ><button class="btn btn-warning" ng-click="updateAccount(account)">修改</button></span>			<span style="margin-left:30px"><button class="btn btn-warning" ng-click="returnPage()">返回</button></span>		</div>	</div></div>

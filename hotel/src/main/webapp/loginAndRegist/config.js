@@ -1,0 +1,14 @@
+app.config(['$routeProvider',function($routeProvider){
+	$routeProvider
+	.when('/logining',{
+	    templateUrl:'logining',
+	    controller:'loginCtrl'
+	})
+	.when('/regist',{
+		templateUrl:'regist',
+		controller:'registCtrl'
+	})
+	.otherwise({
+		redirectTo:'/logining'
+	});
+}]);

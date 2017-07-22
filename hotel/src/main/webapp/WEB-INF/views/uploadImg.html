@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script> 
+</head>
+<body ng-app="imageApp">
+    <!--  <div ng-controller="imageCtrl" >
+                 类型:<input type="text" ng-model="typeRoom" /><br/>
+         <input type="file" file-model="image" /><br/>
+         <button  ng-click="saveImage(typeRoom)">提交</button>
+     </div> -->
+     <form action="http://localhots:8080/image/save" encType="multipart/form-data" method="POST">
+        <input type="file">
+        <input type="submit" value="tijiao">
+     </form>
+     <script type="text/javascript">
+         var imageApp=angular.module('imageApp',[]);
+         imageApp.service('imageService',['$rootScope','$http',function($rootScope,$http){
+        	var service = {
+        			onSave: function(fd){
+        				return $http({
+        					method: "POST",
+        					url: "http://localhost:8080/image/",
+        					data: fd,
+        				});
+        			}
+        	} 
+        	return service;
+            
+         }]);
+         imageApp.controller('imageCtrl',['imageService','$scope','$http',
+        	  function(imageService,$scope,$http){
+        	  
+        	 $scope.saveImage = function(typeRoom){
+        		  console.log(typeRoom);
+        		  
+        		  var fd = new FormData();
+        		  var file = document.querySelector('input[type=file]').files[0];
+        		  fd.append('load',file);
+        		  fd.append('typeRoom',typeRoom);
+        		  console.log(fd);
+        		  imageService.onSave(fd);
+        	  }
+        	 
+         }])
+     </script>
+</body>
+</html>

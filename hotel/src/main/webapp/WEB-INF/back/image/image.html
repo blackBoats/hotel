@@ -1,0 +1,35 @@
+<div style="margin-left:10%;margin-top:40px;width:80%;padding-top:30px;padding:30px;border: 1px solid gainsboro;">
+	<div  class="marintop" >
+		<div id="top-left" style="float:left" >
+			<button class="btn btn-info btn-md" ng-click="uploadImage()" style="height:30px">
+                   <span class="glyphicon glyphicon-plus"></span> 上传图片
+        	</button>
+		</div>
+	</div>
+	<div style="clear:left;margin-top: 30px;">
+		<div ng-repeat="item in indexPage" style="float: left;width:50%;padding:10px">
+			<div>
+			<img src="/images/{{item.imageName}}" width="100%" height="300px">
+			</div>
+			<div style="padding-left:20px;padding-top:4px">
+				<button class="btn btn-primary" ng-click="deleteImage(item.imageId)">删除</button>
+				<button style="margin-left:20px" class="btn btn-primary" ng-click="updateImage(item)">修改</button>
+			</div>
+		</div>
+	</div>
+	<div class="mainbottom" style="clear: left;width:80%;margin-left:10%;margin-top:20px;min-width: 960px;" ng-if="indexPage.length != 0">
+		<!--<span style="margin-left:8px;font-size: 16px;">第{{index}}页</span>-->
+		<span style="margin-left:16px">
+				<button class="btn " style="margin-left:6px" ng-click="prePage()">&laquo;</button>
+                <button class="btn " ng-repeat="list in listPage track by $index" 
+                	style="margin-left:6px;" ng-click="selectPage(list)">{{list}}</button>
+                <button class="btn " style="margin-left:6px" ng-click="nextPage()">&raquo;</button>
+		</span>
+		<span style="margin-left:16px">
+			<input type="text" ng-model="index" style="width:60px;">
+			<button class="btn" ng-click="jumpTo(index)">跳转</button>
+		</span>
+	</div>
+       
+</div>
+	

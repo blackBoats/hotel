@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="angular.min.js"></script>
+ <script>
+ var App = angular.module('App',[]).controller('templateController',['$scope',function($scope){
+	 $scope.myTemplate="template1";
+ }]);
+ </script>
+   
+</head>
+<body ng-app="App">
+{{name}}
+     <div ng-controller="templateController">
+     {{2+3}}
+     <div ng-include="myTemplate">
+     </div>
+     <br/>
+     <a ng-click="myTemplate = 'template1';" style="cursor:pointer" ng-class="{'selected' :myTemplate==='template1'}">
+     Display Template!</a>
+     <a ng-click="myTemplate='template2';" style="cursor:pointer" ng-class="{'selected':myTemplate==='template2'}">
+     Display Template3!</a>
+     {{name}}
+     
+     </div>
+    
+</body>
+
+<script type="text/ng-template" id="template1">
+<h1>you are shabi</h1>
+</script>
+<script type="text/ng-template" id="template2">
+<h1>you are dog</h1>
+</script>
+</html>

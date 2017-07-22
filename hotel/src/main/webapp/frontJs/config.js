@@ -1,0 +1,26 @@
+UserApp.config(['$routeProvider',function($routeProvider){
+	$routeProvider
+	.when('/main',{
+		templateUrl:'main',
+		controller:'mainCtrl'
+	})
+	.when('/review',{
+		templateUrl:'review',
+		controller:'reviewCtrl'
+	})
+	.when('/step1',{
+		templateUrl:'reserveStep1',
+		controller:'reserveStep1Ctrl'
+	})
+	.when('/updateCustomer',{
+		templateUrl:'updateCustomer',
+		controller:'updateCustomerCtrl'
+	})
+	.when('/detailOrder',{
+		templateUrl:'detailOrder',
+		controller:'detailOrderCtrl'
+	})
+	.otherwise({
+    		redirectTo: '/main'
+    });
+}]);

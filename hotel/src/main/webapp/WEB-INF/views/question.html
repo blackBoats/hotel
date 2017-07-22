@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+   <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body ng-app="questApp">
+<div ng-controller="questCtrl">
+    <input type="text" ng-model="quest.quizMessage">
+    <button ng-click="saveQuest(quest)">提问</button>
+</div>
+<div ng-controller="questingCtrl">
+     <div ng-repeat="quest in quests">
+         <lable ng-bind="quest.quizMessage"></lable><br/>
+     </div>
+</div>
+<script type="text/javascript">
+
+     var questApp=angular.module("questApp",[]);
+     /*questApp.service('questService',['$rootScope','$http',function(){
+         var service = {
+             onSave:function(dat){
+                 return $http({
+                     method:"POST",
+                     url:"http://localhost:8080/questing",
+                     data:dat,
+                     headers:{ 'Content-Type':undefined }
+                 });
+             }
+         }
+         return service;
+     }]);*/
+     questApp.controller('questCtrl',function($scope,$http){
+         $scope.saveQuest = function(quest){
+            console.log(quest);
+             $http.post("http://localhost:8080/questing",quest);
+         }
+     });
+     questApp.controller('questingCtrl',function($scope,$http){
+         $http.get('http:localhost:8080/question').success(function(data,status,config,headers){
+        	 $scope.quests = data;
+        	 alert("success");
+         });
+         });
+</script>
+</body>
+</html>

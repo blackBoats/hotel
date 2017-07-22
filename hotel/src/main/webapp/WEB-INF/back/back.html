@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>主页</title>
+ 
+ <link rel="stylesheet" href="../../css/bootstrap.min.css">   
+ <link rel="stylesheet" href="../../css/calendar.css">
+ <link rel="stylesheet" href="../../css/zyUpload.css">
+ <script src="../../bootstrap/jquery.min.js"></script>
+ <script src="../../bootstrap/calendar.js"></script>
+ <script src="../../bootstrap/bootstrap.min.js"></script>
+ <script src="../../bootstrap/angular.min.js"></script>
+ <script src="../../bootstrap/angular-route.js"></script>
+ <script src="../../backJs/appConfig.js"></script>
+ <script src="../../backJs/service.js"></script>
+ <script src="../../backJs/controller.js"></script>
+ <script src="../../bootstrap/zyFile.js"></script>
+ <script src="../../bootstrap/zyUpload.js"></script>
+ <script src="../../bootstrap/jq22.js"></script>
+ 
+</head>
+<body ng-app="backApp" style="">
+           <div style="min-width:1200px;" ng-controller="limitCtrl">
+           <div class="top" >
+           	<div style="float:right;padding-right:20px;padding-top:4px">
+           	<span>{{user.name}}</span>
+           	<a href="javascript:void(0)"><span ng-click="logout()">注销</span></a>
+           	</div>
+           </div>
+           <div style="clear:both;">
+           <div class="col-md-2 main-left" style="background-color:#F6F6F6">
+           	<div style="padding-left:20px">
+           		<ul class="nav nav-pills nav-stacked">
+	                <li ><a href="javascript:volid(0);">信息管理</a></li>
+	                <li><a href="#/room">客房</a></li> 
+	                <li><a href="#/order">订单</a></li>
+	                <li ng-if="user.name == 'admin'"><a href="#/user">用户</a></li>
+	                <li ng-if="user.name == 'admin'"><a href="#/employee">员工</a></li>
+	                <li ng-if="user.name == 'admin'"><a href="#/image">图片</a></li>
+	                <li><a href="#/review">反馈</a></li>
+	                <li ng-if="user.name == 'admin'"><a href="#/account">账单</a></li>
+                </ul>
+           	</div>
+           </div>
+           <div class="main-right col-md-10">
+           	   <div ng-view></div>
+           </div>
+         </div>
+         </div>
+</body>
+<style>
+	.top {
+		height: 80px;
+		border: 0px solid royalblue;
+		background-color:cornflowerblue
+	}
+	
+	.main-left {
+		
+		padding: 0;
+		border-right:20px solid white;
+		height: 900px;	
+	}
+	.main-right {
+		float: left;
+		padding:0px;
+		min-width: 200px;
+	}
+</style>
+</html>

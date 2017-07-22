@@ -1,0 +1,161 @@
+<div style="border: 1px solid gainsboro;padding:30px">
+	<div class="main" style="margin-left:15%;margin-top:100px">
+	 	<div>
+	 		<div style="margin-left: 25%;clear:right;font-size: 20px;">信息登记</div>
+	 	</div>
+	 	<div style="height:30px;margin-top:10px">
+	 	    <div class="step1-main" style="margin-top:32px;">
+			    <div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">姓名</div>
+			    </div>
+			    <div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<input type="text" style="width:200px" ng-model="order.username">
+				    </div>
+		        </div>	
+		    </div>
+		</div>
+	
+	    <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">电话</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<input type="text" style="width:200px" ng-model="order.username">
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	    
+	    <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">身份证</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<input type="text" style="width:200px" ng-model="order.username">
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	    	
+	    <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">房间类型</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<select ng-init = " " ng-model = "typeRoom" ng-options = "x for x in typeRooms" 
+						ng-change="selectRoomType(typeRoom)" style="width:100px">
+					</select>
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	    
+	     <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">床型</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<select ng-init = " " ng-model = "bedType" ng-options = "x for x in typeBeds" 
+						ng-change="selectTypeBed(bedType)" style="width:100px">
+					</select>
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	    
+	    <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">房间号</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<input type="text" style="width:200px" ng-model="order.username">
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	    
+	    <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">预订时间</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					   <select>
+					   	<option >{{dates}}</option>
+					   	<option>二号</option>
+					   </select>
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	     <div class="main" style="height:30px;">
+	 	    <div class="step1-main" style="margin-top:12px;clear:left">
+		     	<div style="float:left;border:0px solid red;margin-left:40px;width:100px;padding-right: 10px;">
+				    <div style="font-size: 16px;text-align: right;">离开时间</div>
+			    </div>
+		    	<div style="float:left;border:0px solid red;margin-left:20px;width:200px;padding-left: 0px;">
+				    <div style="font-size: 16px;">
+					<input type="text" style="width:200px" ng-model="order.username">
+				    </div>
+		        </div>	
+		    </div>
+	    </div>
+	    
+		
+	</div>
+	 
+</div>
+<style>
+a {
+	text-decoration: none;
+	font-size:12px;
+}
+ul, ol, li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+p {
+	margin: 0;
+}
+#dt {
+	
+}
+</style>
+<script>
+    $('#dd').calendar({
+        trigger: '#dt',
+        zIndex: 999,
+		format: 'yyyy-mm-dd',
+        onSelected: function (view, date, data) {
+           
+        },
+        onClose: function (view, date, data) {
+            var ss = date.format("yyyy-mm-dd")
+            $("#dt").val(ss.toString());
+            
+        }
+    });
+    $('#dds').calendar({
+        trigger: '#dts',
+        zIndex: 999,
+		format: 'yyyy-mm-dd',
+        onSelected: function (view, date, data) {
+            
+        },
+        onClose: function (view, date, data) {
+        }
+    });
+</script>

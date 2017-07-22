@@ -1,0 +1,102 @@
+<div class="container" style="margin-top:10px;border: 1px solid gainsboro;">
+	
+	<div style="width:100%;padding-bottom: 30px;"> 
+		<div style="width:50%;padding-top:30px;padding-left:30px">
+			<div style="width:300px;">
+				<div style="height:30px;padding-top:4px;">我要提建议<span style="font-size:10px">(以下全为必填)</span></div>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">问题分类</div>
+			</div>
+			<div style="float:left">
+				<div>
+					<select  ng-init="review.reviewQuestion = questions[0]" ng-model="review.reviewQuestion" ng-options="x for x in questions" class="form-control" style="height:30px;width:200px;font-size: 12px;"></select>
+					<!--<input type="text" class="form-control" style="height:30px" ng-model="review.reviewQuestion">-->			
+				</div>
+			</div>
+			<div style="float:left">
+				<div style="clear: left;height:30px;padding-top:4px">
+					<span ></span>			
+				</div>
+			</div>
+		</div>
+		
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">内容</div>
+			</div>
+			<div style="float:left">
+				<div>
+					<textarea class="form-control" rows="3" style="width:300px" ng-model="review.reviewMessage" required="required"></textarea>	
+							
+				</div>
+			</div>
+			<div style="float:left">
+				<div style="clear: left;height:30px;padding-top:4px">
+					<span ></span>			
+				</div>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">登录名</div>
+			</div>
+			<div style="float:left">
+				<div>
+					<input type="text" class="form-control" style="height:30px" ng-model="review.reviewUsername" required="required">			
+				</div>
+			</div>
+			<div style="float:left;">
+				<div style="clear: left;height:30px;padding-top:4px">
+					<span ></span>			
+				</div>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px" >联系电话</div>
+			</div>
+			<div style="float:left">
+				<div>
+						<input type="text" class="form-control" style="height:30px" ng-model="review.phoneNumber" required="required">		
+				</div>
+			</div>
+			<div style="float:left">
+				<div style="clear: left;height:30px;padding-top:4px">
+					<span ></span>			
+				</div>
+			</div>
+		</div>
+		<div style="width:50%;padding-top:30px;clear: left;">
+			<div style="width:100px;padding-right: 20px;float:left">
+				<div style="text-align: right;height:30px;padding-top:4px">验证码</div>
+			</div>
+			<div style="float:left">
+				<div>
+						<input type="text" class="form-control" style="height:30px" id="code_input" required="required">		
+				</div>
+			</div>
+			<div style="float:left;padding-left:10px">
+				<div style="height:30px;" id="v_container">
+				</div>
+			</div>
+			<div style="float:left;padding-left:10px;padding-top:4px">
+				<span></span>
+			</div>
+		</div>
+		<div style="clear:left;padding-top: 30px;padding-left:30px">
+			<button class="btn btn-success" ng-click="saveReview(review)">提交</button>
+			<a class="btn btn-success" href="#/main" style="margin-left:20px">返回</a>
+		</div>
+	</div>
+</div>
+<script>
+	$(function () {
+		$('#myTab li:eq(1) a').tab('show');
+	});
+	var verifyCode = new GVerify("v_container");
+
+		
+</script>

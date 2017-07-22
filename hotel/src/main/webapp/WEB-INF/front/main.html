@@ -1,0 +1,247 @@
+<div class="main-content">
+      <div >
+           <!-- 酒店的简单介绍 -->
+           <div class="nav_left"  style="position:relative">
+                <div style="padding-left:14px"><p class="h3">湖南理工学院</p></div>
+                <div style="position:absolute;right:20px;top:10px" ng-if="customer.password != null">
+                   <ul class="nav nav-pills">
+									  <li ><a href="javascript:void(0)" ng-click="detailCustomer(customer.customerid)">{{customer.email}}</a></li>
+									   <li ><a href="javascript:void(0)" ng-click="detailOrder(customer.customerid)">查看订单</a></li>
+									  <li><a href="javascript:void(0)" ng-click="logout()">注销</a></li>
+							    </ul> 
+                </div>
+                <div style="position:absolute;right:20px;top:10px" ng-if="customer.password == null">
+                	<ul class="nav nav-pills">
+									  <li ><a href="loginAndRegist">注册</a></li>
+									  <li><a href="loginAndRegist">登录</a></li>
+							    </ul>
+                </div>
+                <div style="position:absolute;right:20px;bottom:4px""><ul class="nav nav-pills"> <li > <a href="#/review">反馈信息</a></li></ul></div>
+           </div>
+           
+           <div class="nav_image" >
+           	 
+             <div class="maxImage">
+             <img src="/images/{{firstImage.imageName}}" width="348px" height="298px" alt="First slide"/>
+             </div>
+             <div class="minImage" ng-repeat="image in mainImage">
+             <img src="/images/{{image.imageName}}" height="148px" width="182px" alt="First slide"/>
+             </div>
+           </div>
+           
+           <!--<div class="main-body">
+                
+                <input type="text" id="dt"   ng-model="dt " /> 
+                <div id="dd">
+                </div>
+                <input type="text" id="dts" placeholder="trigger calendar" ng-model="time2" />
+                <div id="dds">
+                </div>
+                <button class="btn btn-primary" ng-click="login(time1)">show</button>
+           </div>-->
+           <div class="main" style="margin-top:20px">
+               <!--<div class="main-top">
+               </div>-->
+               
+               <!--<div class="main-bottom">
+               </div>-->
+               
+               <div>
+               <!--酒店预订列表-->
+               <div style="">
+               <table class="table">
+               	<thead class="thead">
+               		<tr>
+                	<td >房型</td>
+                 	<td >床型</td>
+                	<td >价格</td>
+                	<td >剩余房间</td>
+                	<td >预订</td>
+                </tr>
+               	</thead>
+               	<tbody>
+                <tr >
+                	<td >{{rooms3[0].roomType}}</td>
+                	<td >{{rooms3[0].bedType}}</td>
+                	<td >{{rooms1[0].roomPrice}}</td>
+                	<td >余{{rooms1.length}}间</td>
+                	<td ><button class="btn btn-info" ng-click="reserveRoom(rooms1)">预订</button></td>
+                </tr>
+                <tr >
+                	<td >{{rooms3[0].roomType}}</td>
+                	<td >{{rooms3[0].bedType}}</td>
+                	<td >{{rooms2[0].roomPrice}}</td>
+                	<td >余{{rooms2.length}}间</td>
+                	<td ><button class="btn btn-info" ng-click="reserveRoom(rooms2)">预订</button></td>
+                </tr>
+                <tr >
+                	<td >{{rooms3[0].roomType}}</td>
+                	<td >{{rooms3[0].bedType}}</td>
+                	<td >{{rooms3[0].roomPrice}}</td>
+                	<td >余{{rooms3.length}}间</td>
+                	<td ><button class="btn btn-info" ng-click="reserveRoom(rooms3)">预订</button></td>
+                </tr>
+                <tr >
+                	<td >{{rooms3[0].roomType}}</td>
+                	<td >{{rooms3[0].bedType}}</td>
+                	<td >{{rooms4[0].roomPrice}}</td>
+                	<td >余{{rooms4.length}}间</td>
+                	<td ><button class="btn btn-info" ng-click="reserveRoom(rooms4)">预订</button></td>
+                </tr>
+                  <tr >
+                	<td >{{rooms3[0].roomType}}</td>
+                	<td >{{rooms3[0].bedType}}</td>
+                	<td >{{rooms5[0].roomPrice}}</td>
+                	<td >余{{rooms5.length}}间</td>
+                	<td ><button class="btn btn-info" ng-click="reserveRoom(rooms5)">预订</button></td>
+                </tr>
+                </tbody>
+               </table>
+               </div>
+             
+           </div>
+           
+      </div>
+      </div>
+      
+<style type="text/css">
+.striped {
+	
+}
+a {
+	text-decoration: none;
+	font-size:12px;
+}
+ul, ol, li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+p {
+	margin: 0;
+}
+#dt {
+	margin: 30px auto;
+	height: 28px;
+	width: 200px;
+	padding: 0 6px;
+	border: 1px solid gainsboro;
+	outline: none;
+}
+#dts {
+	margin: 30px auto;
+	height: 28px;
+	width: 200px;
+	padding: 0 6px;
+	border: 1px solid gainsboro;
+	outline: none;
+}
+
+.main-content {
+	width: 900px;
+	margin: 0 auto;
+	border: 1px solid gainsboro;
+}
+.main-left {
+	width: 900px;
+	border: 1px solid gainsboro;
+}
+.nav_left {
+	height: 80px;
+	border: 1px solid gainsboro;
+}
+.nav_image {
+	height: 300px;
+	border: 1px solid gainsboro;
+}
+.maxImage {
+	width: 348px;
+	height: 298px;
+	border: 1px solid gainsboro;
+	float: left;
+}
+.minImage {
+	width: 182px;
+	height: 148px;
+	border: 1px solid gainsboro;
+	float: left;
+}
+.main-body {
+	width: 900px;
+	height: 100px;
+	border: 1px solid gainsboro;
+	font-size: 12px;
+}
+.main-calendar {
+	width: 300px;
+	
+	
+}
+.main {
+	width :900px;
+	border: 1px solid gainsboro;
+}
+.main-top {
+	width: 900px;
+	height: 100px; 
+	border: 1px solid gainsboro;
+}
+.main-bottom {
+	width: 900px;
+	height: 50px; 
+	border: 1px solid gainsboro;
+}
+.col-md-3 {
+	height: 60px;
+	border: 1px solid gainsboro;
+}
+.col-md-9 {
+	border: 1px solid gainsboro;
+	height: 187px
+}
+.bedType {
+	width: 120px;
+	border: 1px solid gainsboro;
+	height: 60px;
+}
+/*.btn-tbs {
+	
+	width: 120px;
+	background-color:white;
+}
+.btn {
+	margin-left: 20px;
+}
+.tbs {
+	width: 110px;
+	
+}
+.thead {
+	height: 40px;
+}*/
+</style>
+<script>
+    $('#dd').calendar({
+        trigger: '#dt',
+        zIndex: 999,
+		format: 'yyyy-mm-dd',
+        onSelected: function (view, date, data) {
+           
+        },
+        onClose: function (view, date, data) {
+            var ss = date.format("yyyy-mm-dd")
+            $("#dt").val(ss.toString());
+            
+        }
+    });
+    $('#dds').calendar({
+        trigger: '#dts',
+        zIndex: 999,
+		format: 'yyyy-mm-dd',
+        onSelected: function (view, date, data) {
+            
+        },
+        onClose: function (view, date, data) {
+        }
+    });
+</script>

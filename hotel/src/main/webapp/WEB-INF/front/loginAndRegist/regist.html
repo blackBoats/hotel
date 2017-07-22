@@ -1,0 +1,59 @@
+<div class="regist" >
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label for="name" class="col-sm-3 control-label">手机号码</label>
+		<div class="col-sm-9">
+			<input type="text" class="form-control" id="name" 
+				   placeholder="请输入手机号码" ng-model="user.phoneNumber">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="password" class="col-sm-3 control-label">密码</label>
+		<div class="col-sm-9">
+			<input type="password" class="form-control" id="password" 
+				   placeholder="请输入登录密码" ng-model="user.password">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="email" class="col-sm-3 control-label">邮箱</label>
+		<div class="col-sm-9">
+			<input type="password" class="form-control" id="email" 
+				   placeholder="请输入邮箱"  ng-model="user.email">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="checkcode" class="col-sm-3 control-label">验证码</label>
+		<div class="col-sm-4">
+			<input type="password" class="form-control" id="checkcode" 
+				   placeholder="验证码" >
+		</div>
+		<div class="col-sm-5" id="v_container" style="width: 100px;height: 30px;font-size:22px" ></div>
+	
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-10">
+			<button  class="btn btn-default" ng-click="regist(user)">注册</button>
+		</div>
+	</div>
+</form></div>
+<style>
+.regist{
+	margin-left: 50%;
+	margin-top: 200px;
+	width: 450px;
+	height: 340px;
+	border: 1px solid gainsboro;
+	font-size: 12px;
+	padding: 30px
+	}
+.form-horizontal{
+	margin-top: 30px;
+}
+.form-control{
+	width: 260px;
+}
+#checkcode{
+	width: 130px;
+}
+</style>
